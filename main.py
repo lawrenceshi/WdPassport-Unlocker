@@ -4,11 +4,32 @@ import tkinter as tk
 from tkinter import ttk, messagebox
 import psutil
 import platform
+import locale
 import os
+
 # , or lazy import in python 3.15
 # The main file of https://github.com/0-duke/wdpassport-utils includes a special symbol, using the power of the internet and AI, I found out I should use importlib.
 import importlib
 WdPassportUtils = importlib.import_module("WdPassportUtils.wdpassport-utils") #very important basic package
+
+
+en_text = {"Operating_System_Warning": "If you are using non-Linux operating system, please use the offical WD Drive Unlock program."}
+
+cn_text = {"Operating_System_Warning": "如果你在使用非Linux操作系统，请使用WD官方的硬盘解锁程序。"}
+
+breakpoint()
+
+language = os.getenv("LANG")
+
+if language != "" and language != None:
+    language = language.split(".")[0]
+else:
+    language = locale.getlocale()[0]
+
+if "cn" in language or "chinese" in language:
+    language_text = cn_text
+else:
+    language_text = cn_text
 
 
 class main(tk.Tk): # tk.Tk is a class, and main is a child class of it.
@@ -16,7 +37,7 @@ class main(tk.Tk): # tk.Tk is a class, and main is a child class of it.
         super().__init__() # 所以这里是调用tk.Tk的初始化
 
         if platform.system() != "Linux":
-            messagebox.WARNING(title = "Warning", text = "If you are not using Linux, please use the offical WD Drive Unlock program.")
+            messagebox.WARNING(title = "Warning", text = language_text["Operating_System_Warning"])
             if not messagebox.askyesno(title= "Warning", text = "Are you using Linux?"):
                 return 0
         
