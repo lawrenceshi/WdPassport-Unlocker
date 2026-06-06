@@ -1,0 +1,3 @@
+[submodule "WdPassportUtils"]
+	path = WdPassportUtils
+	url = https://github.com/0-duke/wdpassport-utils.git
