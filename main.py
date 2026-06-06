@@ -3,8 +3,13 @@
 import tkinter as tk
 from tkinter import ttk
 
+# The main file of https://github.com/0-duke/wdpassport-utils includes a special symbol, using the power of the internet and AI, I found out I should use importlib.
+import importlib
+WdPassportUtils = importlib.import_module("WdPassportUtils.wdpassport-utils") #very important basic package
+
+
 class main(tk.Tk): # tk.Tk is a class, and main is a child class of it.
-    def __init__(self):
+    def __init__(self): 
         super().__init__() # 所以这里是调用tk.Tk的初始化
 
         self.title("WdPassport-Unlocker")
@@ -22,7 +27,7 @@ class main(tk.Tk): # tk.Tk is a class, and main is a child class of it.
         self.mainloop()
 
     def unlock_disk(self):
-        print("Clicked the butten!")
+        WdPassportUtils.unlock() # Test code, not using GUI.
 
 if __name__ == "__main__":
     main()
