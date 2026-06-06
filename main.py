@@ -10,6 +10,7 @@ class main(tk.Tk): # tk.Tk is a class, and main is a child class of it.
         self.title("WdPassport-Unlocker")
         self.geometry("600x800")
         self.resizable(False, False)
+        self.configure(background="#9acffc")
 
         self.create_main_interface()
     def create_main_interface(self):
