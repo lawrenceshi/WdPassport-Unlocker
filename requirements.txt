@@ -1,0 +1,3 @@
+git+https://github.com/0-duke/wdpassport-utils
+pyudev
+py3_sg
